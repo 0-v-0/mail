@@ -3,10 +3,8 @@ import mail.pop3;
 
 void main()
 {
-	Pop3Reply r;
-	
 	auto link = new Pop3("localhost");
-	r = link.connect;
+	Pop3Reply r = link.connect;
 	writeln(r, r.message);
 
 	r = link.auth("user", "password");

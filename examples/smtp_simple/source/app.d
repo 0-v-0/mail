@@ -3,9 +3,8 @@ import mail.smtp;
 
 void main()
 {
-	SmtpReply r;
 	auto link = new Smtp("localhost");
-	r = link.connect;
+	SmtpReply r = link.connect;
 	writeln(r.success, " ", r);
 
 	r = link.startTLS;
@@ -31,7 +30,7 @@ void main()
 
 	r = link.rcptTo("root@localhost");
 	writeln(r.success, " ", r);
-	
+
 	r = link.data();
 	writeln(r.success, " ", r);
 
@@ -47,10 +46,10 @@ void main()
 	Msg m2;
 	m2.headers["content-type"] = "text/html";
 	m2.data = "<html><body><h1>TEST</h1></body></html>";
-	
+
 	m.parts ~= m2;
-	
-	
+
+
 	r = link.send("root@localhost", ["root@localhost"], m);
 	writeln(r.success, " ", r);
 

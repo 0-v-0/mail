@@ -64,7 +64,7 @@ struct Msg
 		if (parts.length)
 		{
 			hS["content-type"] = hM.get("content-type", "text/plain");
-			hM["content-type"] = format("multipart/mixed; boundary=\"%s\"", boundary).dup;
+			hM["content-type"] = "multipart/mixed; boundary=\"%s\"".format(boundary);
 			sink(hM.to!string);
 			sink("--" ~ boundary ~ "\r\n");
 			hS["content-transfer-encoding"] = "base64";

@@ -97,8 +97,7 @@ class Smtp
 		return r;
 	}
 
-	alias disconnect = _sock.disconnect;
-	//void disconnect() { _sock.disconnect(); }
+	void disconnect() { _sock.disconnect(); }
 
 	SmtpReply startTLS(EncryptionMethod encMethod = EncryptionMethod.TLSv1_2)
 	{
