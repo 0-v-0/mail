@@ -23,9 +23,7 @@ struct Msg
 	{
 		string content = void;
 		if (data.length)
-		{
 			content = data;
-		}
 		else
 		{
 			foreach (ref m; parts)
@@ -85,9 +83,7 @@ struct Msg
 			sink(i.to!string);
 		}
 		if (parts.length)
-		{
 			sink("--" ~ boundary ~ "--\r\n");
-		}
 	}
 
 	static Msg parse(ubyte[] srcData)
@@ -116,9 +112,7 @@ struct Msg
 		}
 
 		if (!ct.length)
-		{
 			m.data = cast(string) data;
-		}
 		else {
 			auto ctl = ct.toLower;
 			if (ctl.startsWith("multipart/related")
